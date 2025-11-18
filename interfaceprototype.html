@@ -15,14 +15,14 @@
              PAGE 1: PERSONAL INFORMATION
         ======================================== -->
         <form id="applicationForm" onsubmit="return validateAndSavePage1();">
-            First Name: <input type="text" name="firstName" size="20">
-            Last Name: <input type="text" name="lastName" size="20">
+            First Name: <input type="text" name="firstName" size="20" required>
+            Last Name: <input type="text" name="lastName" size="20" required>
             Middle Initial: <input type="text" name="middleInitial" size="2" maxlength="1">
             <br><br><br>
-            Address: <input type="text" name="address" size="50">
+            Address: <input type="text" name="address" size="50" required>
             <br><br><br>
-            City: <input type="text" name="city" size="30">
-            State: <select name="state">
+            City: <input type="text" name="city" size="30" required>
+            State: <select name="state" required>
                 <option value="">Select a state</option>
                 <option value="AL">AL</option>
                 <option value="AK">AK</option>
@@ -75,25 +75,25 @@
                 <option value="WI">WI</option>
                 <option value="WY">WY</option>
             </select>
-            Zip: <input type="text" name="zip" id="zip" size="10" maxlength="5" pattern="[0-9]*">
+            Zip: <input type="text" name="zip" id="zip" size="10" maxlength="5" pattern="[0-9]*" required>
             <br><br><br>
             How many years have you lived at this address?
             <button type="button" onclick="decreaseYears()">-</button>
             <input type="number" name="yearsAtAddress" id="yearsAtAddress" min="0" value="0" readonly style="width: 50px;">
             <button type="button" onclick="increaseYears()">+</button>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            SSN: <input type="text" name="ssn" id="ssn" size="15" maxlength="11" placeholder="###-##-####">
+            SSN: <input type="text" name="ssn" id="ssn" size="15" maxlength="11" placeholder="###-##-####" required>
             <br><br><br>
-            Telephone Number: <input type="text" name="telephone" id="telephone" size="17" maxlength="14" placeholder="(###)###-####">
-            Mobile Number: <input type="text" name="mobile" id="mobile" size="17" maxlength="14" placeholder="(###)###-####">
+            Telephone Number: <input type="text" name="telephone" id="telephone" size="17" maxlength="14" placeholder="(###)###-####" required>
+            Mobile Number: <input type="text" name="mobile" id="mobile" size="17" maxlength="14" placeholder="(###)###-####" required>
             <br><br><br>
-            Email: <input type="email" name="email" size="40">
+            Email: <input type="email" name="email" size="40" required>
             <br><br><br>
             Are you at least 18? (All employees must be 18 or over)
-            <input type="radio" name="ageVerification" value="yes"> Yes
+            <input type="radio" name="ageVerification" value="yes" required> Yes
             <input type="radio" name="ageVerification" value="no"> No
             <br><br><br>
-            Position Applied For: <input type="text" name="position" size="30">
+            Position Applied For: <input type="text" name="position" size="30" required>
             <br><br><br>
             Desired Salary: $
             <button type="button" onclick="decreaseSalary()">-</button>
@@ -111,14 +111,14 @@
         <div id="page2" style="display: none;">
             <h2>PERSON TO BE NOTIFIED IN CASE OF EMERGENCY</h2>
             <form id="emergencyForm">
-                First Name: <input type="text" name="emergencyFirstName" size="20">
-                Last Name: <input type="text" name="emergencyLastName" size="20">
+                First Name: <input type="text" name="emergencyFirstName" size="20" required>
+                Last Name: <input type="text" name="emergencyLastName" size="20" required>
                 Middle Initial: <input type="text" name="emergencyMiddleInitial" size="2" maxlength="1">
                 <br><br><br>
-                Address: <input type="text" name="emergencyAddress" size="50">
+                Address: <input type="text" name="emergencyAddress" size="50" required>
                 <br><br><br>
-                City: <input type="text" name="emergencyCity" size="30">
-                State: <select name="emergencyState">
+                City: <input type="text" name="emergencyCity" size="30" required>
+                State: <select name="emergencyState" required>
                     <option value="">Select a state</option>
                     <option value="AL">AL</option>
                     <option value="AK">AK</option>
@@ -171,14 +171,14 @@
                     <option value="WI">WI</option>
                     <option value="WY">WY</option>
                 </select>
-                Zip: <input type="text" name="emergencyZip" id="emergencyZip" size="10" maxlength="5" pattern="[0-9]*">
+                Zip: <input type="text" name="emergencyZip" id="emergencyZip" size="10" maxlength="5" pattern="[0-9]*" required>
                 <br><br><br>
-                Telephone Number: <input type="text" name="emergencyTelephone" id="emergencyTelephone" size="17" maxlength="14" placeholder="(###)###-####">
-                Mobile Number: <input type="text" name="emergencyMobile" id="emergencyMobile" size="17" maxlength="14" placeholder="(###)###-####">
+                Telephone Number: <input type="text" name="emergencyTelephone" id="emergencyTelephone" size="17" maxlength="14" placeholder="(###)###-####" required>
+                Mobile Number: <input type="text" name="emergencyMobile" id="emergencyMobile" size="17" maxlength="14" placeholder="(###)###-####" required>
                 <br><br><br>
-                Email: <input type="email" name="emergencyEmail" size="40">
+                Email: <input type="email" name="emergencyEmail" size="40" required>
                 <br><br><br>
-                Relationship to Applicant: <input type="text" name="relationship" size="30">
+                Relationship to Applicant: <input type="text" name="relationship" size="30" required>
                 <br><br><br>
                 <div style="display: flex; justify-content: space-between;">
                     <button type="button" onclick="goBackToPage1()" style="padding: 10px 30px;">Back to Page 1</button>
@@ -275,18 +275,18 @@
                         </td>
                         <td style="width: 33%; vertical-align: top;">
                             Gender<br><br>
-                            <input type="radio" name="gender" value="Male"> Male<br>
+                            <input type="radio" name="gender" value="Male" required> Male<br>
                             <input type="radio" name="gender" value="Female"> Female<br>
                             <input type="radio" name="gender" value="Other"> Other
                             <br><br><br>
                             Employment desired<br><br>
-                            <input type="radio" name="employment" value="Full-Time"> Full-Time<br>
+                            <input type="radio" name="employment" value="Full-Time" required> Full-Time<br>
                             <input type="radio" name="employment" value="Part-Time"> Part-Time
                         </td>
                         <td style="width: 33%; vertical-align: top;">
                             Days available to work<br><br>
-                            <input type="checkbox" name="daysAvailable" value="All" id="allDaysCheckbox"> All<br>
-                            <input type="checkbox" name="daysAvailable" value="Mon" class="dayCheckbox"> Mon<br>
+                            <input type="checkbox" name="daysAvailable" value="All" id="allDaysCheckbox" class="daysCheckbox"> All<br>
+                            <input type="checkbox" name="daysAvailable" value="Mon" class="dayCheckbox daysCheckbox"> Mon<br>
                             <input type="checkbox" name="daysAvailable" value="Tues" class="dayCheckbox"> Tues<br>
                             <input type="checkbox" name="daysAvailable" value="Wed" class="dayCheckbox"> Wed<br>
                             <input type="checkbox" name="daysAvailable" value="Thu" class="dayCheckbox"> Thu<br>
@@ -303,11 +303,11 @@
                 <button type="button" onclick="increaseHours()">+</button>
                 <br><br><br>
                 Can you work nights?
-                <input type="radio" name="workNights" value="yes"> Yes
+                <input type="radio" name="workNights" value="yes" required> Yes
                 <input type="radio" name="workNights" value="no"> No
                 <br><br><br>
                 Have you ever been fired from a job?
-                <input type="radio" name="firedFromJob" value="yes"> Yes
+                <input type="radio" name="firedFromJob" value="yes" required> Yes
                 <input type="radio" name="firedFromJob" value="no"> No
                 <br><br><br>
                 <div style="display: flex; justify-content: space-between;">
@@ -324,7 +324,7 @@
             <h2>MISCELLANEOUS</h2>
             <form id="miscellaneous2Form">
                 Have you ever served in the military?
-                <input type="radio" name="servedMilitary" value="yes" id="militaryYes"> Yes
+                <input type="radio" name="servedMilitary" value="yes" id="militaryYes" required> Yes
                 <input type="radio" name="servedMilitary" value="no" id="militaryNo"> No
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 How many years? <input type="number" name="militaryYears" id="militaryYears" min="0" size="5" disabled>
@@ -345,7 +345,7 @@
                 </select>
                 <br><br><br>
                 Do you have a driver's license?
-                <input type="radio" name="hasLicense" value="yes" id="licenseYes"> Yes
+                <input type="radio" name="hasLicense" value="yes" id="licenseYes" required> Yes
                 <input type="radio" name="hasLicense" value="no" id="licenseNo"> No
                 <br><br><br>
                 Driver's License #: <input type="text" name="licenseNumber" id="licenseNumber" size="20" disabled>
@@ -408,9 +408,13 @@
                 <br><br><br>
                 How many traffic violations have you had in the past three years? <input type="text" name="trafficViolations" id="trafficViolations" size="15" disabled>
                 <br><br><br>
-                Have you ever been stopped for suspension of drinking and driving? <input type="text" name="drinkingDriving" id="drinkingDriving" size="15" disabled>
+                Have you ever been stopped for suspension of drinking and driving?
+                <input type="radio" name="drinkingDriving" value="yes" id="drinkingDrivingYes" disabled> Yes
+                <input type="radio" name="drinkingDriving" value="no" id="drinkingDrivingNo" disabled> No
                 <br><br><br>
-                Have you ever been stopped for suspension of distracted driving? <input type="text" name="distractedDriving" id="distractedDriving" size="15" disabled>
+                Have you ever been stopped for suspension of distracted driving?
+                <input type="radio" name="distractedDriving" value="yes" id="distractedDrivingYes" disabled> Yes
+                <input type="radio" name="distractedDriving" value="no" id="distractedDrivingNo" disabled> No
                 <br><br><br>
                 <div style="display: flex; justify-content: space-between;">
                     <button type="button" onclick="goBackToPage4()" style="padding: 10px 30px;">Back to Page 4</button>
@@ -426,7 +430,7 @@
             <h2>CRIMINAL BACKGROUND</h2>
             <form id="criminalForm">
                 Have you ever been convicted of a crime? (IF YES, PROVIDE A LIST OF ALL CRIMINAL OFFENSES (NON-TRAFFIC VIOLATIONS) COMMITTED IN THE PAST 10 YEARS)
-                <input type="radio" name="convictedCrime" value="yes" id="crimeYes"> Yes
+                <input type="radio" name="convictedCrime" value="yes" id="crimeYes" required> Yes
                 <input type="radio" name="convictedCrime" value="no" id="crimeNo"> No
                 <br><br><br>
                 <div id="criminalRecordsContainer" style="display: none;">
@@ -493,37 +497,37 @@
                     <tr>
                         <td style="width: 50%; vertical-align: top; padding-right: 20px;">
                             <strong>Reference 1</strong><br><br>
-                            Name: <input type="text" name="ref1Name" style="width: 100%;"><br><br>
-                            Title: <input type="text" name="ref1Title" style="width: 100%;"><br><br>
-                            Company: <input type="text" name="ref1Company" style="width: 100%;"><br><br>
-                            Address: <input type="text" name="ref1Address" style="width: 100%;"><br><br>
-                            Telephone: <input type="text" name="ref1Telephone" id="ref1Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;"><br><br>
-                            Email address: <input type="email" name="ref1Email" style="width: 100%;"><br><br><br>
+                            Name: <input type="text" name="ref1Name" style="width: 100%;" required>
+                            Title: <input type="text" name="ref1Title" style="width: 100%;" required>
+                            Company: <input type="text" name="ref1Company" style="width: 100%;" required>
+                            Address: <input type="text" name="ref1Address" style="width: 100%;" required>
+                            Telephone: <input type="text" name="ref1Telephone" id="ref1Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;" required>
+                            Email address: <input type="email" name="ref1Email" style="width: 100%;" required><br><br><br>
                             
                             <strong>Reference 3</strong><br><br>
-                            Name: <input type="text" name="ref3Name" style="width: 100%;"><br><br>
-                            Title: <input type="text" name="ref3Title" style="width: 100%;"><br><br>
-                            Company: <input type="text" name="ref3Company" style="width: 100%;"><br><br>
-                            Address: <input type="text" name="ref3Address" style="width: 100%;"><br><br>
-                            Telephone: <input type="text" name="ref3Telephone" id="ref3Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;"><br><br>
-                            Email address: <input type="email" name="ref3Email" style="width: 100%;"><br><br>
+                            Name: <input type="text" name="ref3Name" style="width: 100%;" required>
+                            Title: <input type="text" name="ref3Title" style="width: 100%;" required>
+                            Company: <input type="text" name="ref3Company" style="width: 100%;" required>
+                            Address: <input type="text" name="ref3Address" style="width: 100%;" required>
+                            Telephone: <input type="text" name="ref3Telephone" id="ref3Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;" required>
+                            Email address: <input type="email" name="ref3Email" style="width: 100%;" required><br><br>
                         </td>
                         <td style="width: 50%; vertical-align: top; padding-left: 20px;">
                             <strong>Reference 2</strong><br><br>
-                            Name: <input type="text" name="ref2Name" style="width: 100%;"><br><br>
-                            Title: <input type="text" name="ref2Title" style="width: 100%;"><br><br>
-                            Company: <input type="text" name="ref2Company" style="width: 100%;"><br><br>
-                            Address: <input type="text" name="ref2Address" style="width: 100%;"><br><br>
-                            Telephone: <input type="text" name="ref2Telephone" id="ref2Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;"><br><br>
-                            Email address: <input type="email" name="ref2Email" style="width: 100%;"><br><br><br>
+                            Name: <input type="text" name="ref2Name" style="width: 100%;" required>
+                            Title: <input type="text" name="ref2Title" style="width: 100%;" required>
+                            Company: <input type="text" name="ref2Company" style="width: 100%;" required>
+                            Address: <input type="text" name="ref2Address" style="width: 100%;" required>
+                            Telephone: <input type="text" name="ref2Telephone" id="ref2Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;" required>
+                            Email address: <input type="email" name="ref2Email" style="width: 100%;" required><br><br><br>
                             
                             <strong>Reference 4</strong><br><br>
-                            Name: <input type="text" name="ref4Name" style="width: 100%;"><br><br>
-                            Title: <input type="text" name="ref4Title" style="width: 100%;"><br><br>
-                            Company: <input type="text" name="ref4Company" style="width: 100%;"><br><br>
-                            Address: <input type="text" name="ref4Address" style="width: 100%;"><br><br>
-                            Telephone: <input type="text" name="ref4Telephone" id="ref4Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;"><br><br>
-                            Email address: <input type="email" name="ref4Email" style="width: 100%;"><br><br>
+                            Name: <input type="text" name="ref4Name" style="width: 100%;" required>
+                            Title: <input type="text" name="ref4Title" style="width: 100%;" required>
+                            Company: <input type="text" name="ref4Company" style="width: 100%;" required>
+                            Address: <input type="text" name="ref4Address" style="width: 100%;" required>
+                            Telephone: <input type="text" name="ref4Telephone" id="ref4Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;" required>
+                            Email address: <input type="email" name="ref4Email" style="width: 100%;" required><br><br>
                         </td>
                     </tr>
                 </table>
@@ -723,7 +727,7 @@
                     <strong>TRIAL TIME:</strong> I KNOW THAT MY FIRST 60 DAYS OF WORK ARE A TRIAL TIME. DURING OR AFTER THIS TIME, EITHER I OR UNFINISHED BUSINESS CAN END MY JOB ANYTIME, FOR ANY REASON.<br><br>
                 </div>
                 <br><br>
-                Signature of applicant: <input type="text" name="applicantSignature" size="40" style="margin-left: 10px;">
+                Signature of applicant: <input type="text" name="applicantSignature" size="40" style="margin-left: 10px;" required>
                 <br><br>
                 Date: <span id="signatureDate"></span>
                 <br><br><br>
@@ -859,13 +863,13 @@
         // Increase/decrease desired salary counter
         window.increaseSalary = function() {
             const input = document.getElementById('desiredSalary');
-            input.value = parseInt(input.value) + 1;
+            input.value = parseInt(input.value) + 1000;
         }
         
         window.decreaseSalary = function() {
             const input = document.getElementById('desiredSalary');
-            if (parseInt(input.value) > 0) {
-                input.value = parseInt(input.value) - 1;
+            if (parseInt(input.value) >= 1000) {
+                input.value = parseInt(input.value) - 1000;
             }
         }
         
@@ -1041,6 +1045,34 @@
             document.getElementById('page3').style.display = 'block';
         });
         
+        // Handle medical form submission with validation
+        document.getElementById('medicalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Check if at least one checkbox is checked
+            const medicalCheckboxes = document.querySelectorAll('input[name="medicalCondition"]:checked');
+            if (medicalCheckboxes.length === 0) {
+                alert('Please select at least one medical condition or check "None"');
+                return;
+            }
+            
+            // Save medical form data
+            const formData = new FormData(this);
+            const medicalConditions = [];
+            formData.forEach((value, key) => {
+                if (key === 'medicalCondition') {
+                    medicalConditions.push(value);
+                }
+            });
+            applicationData['medicalConditions'] = medicalConditions;
+            
+            console.log('Page 3 Data Saved:', applicationData);
+            
+            // Hide page 3, show page 4
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'block';
+        });
+        
         // Handle medical form submission
         document.getElementById('medicalForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1065,6 +1097,20 @@
         // Handle miscellaneous form submission
         document.getElementById('miscellaneousForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Validate at least one race checkbox
+            const raceCheckboxes = document.querySelectorAll('.raceCheckbox:checked');
+            if (raceCheckboxes.length === 0) {
+                alert('Please select at least one race option');
+                return;
+            }
+            
+            // Validate at least one checkbox in days available
+            const daysCheckboxes = document.querySelectorAll('.daysCheckbox:checked');
+            if (daysCheckboxes.length === 0) {
+                alert('Please select at least one day available to work');
+                return;
+            }
             
             // Save miscellaneous form data
             const formData = new FormData(this);
@@ -1185,8 +1231,10 @@
                 licenseExpiry.disabled = false;
                 trafficAccidents.disabled = false;
                 trafficViolations.disabled = false;
-                drinkingDriving.disabled = false;
-                distractedDriving.disabled = false;
+                document.getElementById('drinkingDrivingYes').disabled = false;
+                document.getElementById('drinkingDrivingNo').disabled = false;
+                document.getElementById('distractedDrivingYes').disabled = false;
+                document.getElementById('distractedDrivingNo').disabled = false;
             }
         });
         
@@ -1202,16 +1250,51 @@
                 trafficAccidents.value = '';
                 trafficViolations.disabled = true;
                 trafficViolations.value = '';
-                drinkingDriving.disabled = true;
-                drinkingDriving.value = '';
-                distractedDriving.disabled = true;
-                distractedDriving.value = '';
+                document.getElementById('drinkingDrivingYes').disabled = true;
+                document.getElementById('drinkingDrivingNo').disabled = true;
+                document.getElementById('drinkingDrivingYes').checked = false;
+                document.getElementById('drinkingDrivingNo').checked = false;
+                document.getElementById('distractedDrivingYes').disabled = true;
+                document.getElementById('distractedDrivingNo').disabled = true;
+                document.getElementById('distractedDrivingYes').checked = false;
+                document.getElementById('distractedDrivingNo').checked = false;
             }
         });
         
         // Handle miscellaneous2 form submission
         document.getElementById('miscellaneous2Form').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Validate military questions if yes was selected
+            const militaryYes = document.querySelector('input[name="servedMilitary"]:checked');
+            if (militaryYes && militaryYes.value === 'yes') {
+                const militaryYears = document.getElementById('militaryYears').value;
+                const honorableDischarge = document.querySelector('input[name="honorableDischarge"]:checked');
+                const militaryBranch = document.getElementById('militaryBranch').value;
+                
+                if (!militaryYears || !honorableDischarge || !militaryBranch) {
+                    alert('Please complete all military service questions');
+                    return;
+                }
+            }
+            
+            // Validate driver's license questions if yes was selected
+            const licenseYes = document.querySelector('input[name="hasLicense"]:checked');
+            if (licenseYes && licenseYes.value === 'yes') {
+                const licenseNumber = document.getElementById('licenseNumber').value;
+                const licenseState = document.getElementById('licenseState').value;
+                const licenseExpiry = document.getElementById('licenseExpiry').value;
+                const trafficAccidents = document.getElementById('trafficAccidents').value;
+                const trafficViolations = document.getElementById('trafficViolations').value;
+                const drinkingDriving = document.querySelector('input[name="drinkingDriving"]:checked');
+                const distractedDriving = document.querySelector('input[name="distractedDriving"]:checked');
+                
+                if (!licenseNumber || !licenseState || !licenseExpiry || !trafficAccidents || 
+                    !trafficViolations || !drinkingDriving || !distractedDriving) {
+                    alert('Please complete all driver\'s license questions');
+                    return;
+                }
+            }
             
             // Save miscellaneous2 form data
             const formData = new FormData(this);
@@ -1314,6 +1397,20 @@
         // Handle criminal form submission
         document.getElementById('criminalForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Validate criminal records if yes was selected
+            const crimeYes = document.querySelector('input[name="convictedCrime"]:checked');
+            if (crimeYes && crimeYes.value === 'yes') {
+                const crimeDate = document.querySelector('input[name="crimeDate1"]').value;
+                const crimeType = document.querySelector('select[name="crimeType1"]').value;
+                const crimeDescription = document.querySelector('input[name="crimeDescription1"]').value;
+                const crimePunishment = document.querySelector('select[name="crimePunishment1"]').value;
+                
+                if (!crimeDate || !crimeType || !crimeDescription || !crimePunishment) {
+                    alert('Please complete all fields for at least one criminal record');
+                    return;
+                }
+            }
             
             // Save criminal form data
             const formData = new FormData(this);
