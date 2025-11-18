@@ -97,7 +97,9 @@
             <input type="number" name="desiredSalary" id="desiredSalary" min="0" value="0" readonly style="width: 100px;">
             <button type="button" onclick="increaseSalary()">+</button>
             <br><br><br>
-            <button type="submit" style="width: 100%;">Next Page</button>
+            <div style="text-align: right;">
+                <button type="submit" style="padding: 10px 30px;">Next Page</button>
+            </div>
         </form>
         
         <div id="page2" style="display: none;">
@@ -172,8 +174,234 @@
                 <br><br><br>
                 Relationship to Applicant: <input type="text" name="relationship" size="30">
                 <br><br><br>
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="button" onclick="goBackToPage1()" style="padding: 10px 30px;">Back to Page 1</button>
+                    <button type="submit" style="padding: 10px 30px;">Next Page</button>
+                </div>
             </form>
-            <button type="button" onclick="goBackToPage1()" style="width: 100%;">Back to Page 1</button>
+        </div>
+        
+        <div id="page3" style="display: none;">
+            <h2>MEDICAL HISTORY</h2>
+            <form id="medicalForm">
+                <strong>HAVE YOU EVER BEEN DIAGNOSED, TREATED OR SUFFER FROM ANY OF THE FOLLOWING MEDICAL CONDITIONS?</strong><br>
+                <strong>(FAILURE TO DISCLOSE YOUR MEDICAL HISTORY IS GROUNDS FOR IMMEDIATE TERMINATION OF EMPLOYMENT)</strong>
+                <br><br><br>
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 25%; vertical-align: top; line-height: 2;">
+                            <input type="checkbox" name="medicalCondition" value="Acid Reflux" class="medicalCheckbox"> Acid Reflux<br>
+                            <input type="checkbox" name="medicalCondition" value="ADHD" class="medicalCheckbox"> ADHD<br>
+                            <input type="checkbox" name="medicalCondition" value="Arthritis" class="medicalCheckbox"> Arthritis<br>
+                            <input type="checkbox" name="medicalCondition" value="Asthma" class="medicalCheckbox"> Asthma<br>
+                            <input type="checkbox" name="medicalCondition" value="Autism" class="medicalCheckbox"> Autism<br>
+                            <input type="checkbox" name="medicalCondition" value="Autopsy" class="medicalCheckbox"> Autopsy<br>
+                            <input type="checkbox" name="medicalCondition" value="Back Pain" class="medicalCheckbox"> Back Pain<br>
+                            <input type="checkbox" name="medicalCondition" value="Baldness" class="medicalCheckbox"> Baldness<br>
+                            <input type="checkbox" name="medicalCondition" value="Bedwetting" class="medicalCheckbox"> Bedwetting
+                        </td>
+                        <td style="width: 25%; vertical-align: top; line-height: 2;">
+                            <input type="checkbox" name="medicalCondition" value="Cancer/Tumor" class="medicalCheckbox"> Cancer/Tumor<br>
+                            <input type="checkbox" name="medicalCondition" value="Chicken Pox" class="medicalCheckbox"> Chicken Pox<br>
+                            <input type="checkbox" name="medicalCondition" value="Diabetes" class="medicalCheckbox"> Diabetes<br>
+                            <input type="checkbox" name="medicalCondition" value="Epilepsy" class="medicalCheckbox"> Epilepsy<br>
+                            <input type="checkbox" name="medicalCondition" value="Fainting Spells" class="medicalCheckbox"> Fainting Spells<br>
+                            <input type="checkbox" name="medicalCondition" value="Flatulence" class="medicalCheckbox"> Flatulence<br>
+                            <input type="checkbox" name="medicalCondition" value="Gout" class="medicalCheckbox"> Gout<br>
+                            <input type="checkbox" name="medicalCondition" value="Hemophilia" class="medicalCheckbox"> Hemophilia<br>
+                            <input type="checkbox" name="medicalCondition" value="Herpes" class="medicalCheckbox"> Herpes
+                        </td>
+                        <td style="width: 25%; vertical-align: top; line-height: 2;">
+                            <input type="checkbox" name="medicalCondition" value="HIV/AIDS" class="medicalCheckbox"> HIV/AIDS<br>
+                            <input type="checkbox" name="medicalCondition" value="Jock Itch" class="medicalCheckbox"> Jock Itch<br>
+                            <input type="checkbox" name="medicalCondition" value="Lactose Intolerence" class="medicalCheckbox"> Lactose Intolerence<br>
+                            <input type="checkbox" name="medicalCondition" value="Menopause" class="medicalCheckbox"> Menopause<br>
+                            <input type="checkbox" name="medicalCondition" value="Mad Cow Disease" class="medicalCheckbox"> Mad Cow Disease<br>
+                            <input type="checkbox" name="medicalCondition" value="Obesity" class="medicalCheckbox"> Obesity<br>
+                            <input type="checkbox" name="medicalCondition" value="Organ Transplant" class="medicalCheckbox"> Organ Transplant<br>
+                            <input type="checkbox" name="medicalCondition" value="Paralysis" class="medicalCheckbox"> Paralysis<br>
+                            <input type="checkbox" name="medicalCondition" value="Parkinson's" class="medicalCheckbox"> Parkinson's
+                        </td>
+                        <td style="width: 25%; vertical-align: top; line-height: 2;">
+                            <input type="checkbox" name="medicalCondition" value="Peanut Allergy" class="medicalCheckbox"> Peanut Allergy<br>
+                            <input type="checkbox" name="medicalCondition" value="Pink Eye" class="medicalCheckbox"> Pink Eye<br>
+                            <input type="checkbox" name="medicalCondition" value="Pneumonia" class="medicalCheckbox"> Pneumonia<br>
+                            <input type="checkbox" name="medicalCondition" value="Pregnancy" class="medicalCheckbox"> Pregnancy<br>
+                            <input type="checkbox" name="medicalCondition" value="Sleep Apnea" class="medicalCheckbox"> Sleep Apnea<br>
+                            <input type="checkbox" name="medicalCondition" value="Stroke" class="medicalCheckbox"> Stroke<br>
+                            <input type="checkbox" name="medicalCondition" value="Sunburn" class="medicalCheckbox"> Sunburn<br>
+                            <input type="checkbox" name="medicalCondition" value="Tendinitis" class="medicalCheckbox"> Tendinitis<br>
+                            <input type="checkbox" name="medicalCondition" value="Ulcers" class="medicalCheckbox"> Ulcers
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <center>
+                    <input type="checkbox" name="medicalCondition" value="None" id="noneCheckbox"> None
+                </center>
+                <br><br><br>
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="button" onclick="goBackToPage2()" style="padding: 10px 30px;">Back to Page 2</button>
+                    <button type="submit" style="padding: 10px 30px;">Next Page</button>
+                </div>
+            </form>
+        </div>
+        
+        <div id="page4" style="display: none;">
+            <h2>MISCELLANEOUS</h2>
+            <form id="miscellaneousForm">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 33%; vertical-align: top;">
+                            Race (select all that apply)<br><br>
+                            <input type="checkbox" name="race" value="White" class="raceCheckbox"> White<br>
+                            <input type="checkbox" name="race" value="Black or African American" class="raceCheckbox"> Black or African American<br>
+                            <input type="checkbox" name="race" value="American Indian/Alaska Native" class="raceCheckbox"> American Indian/Alaska Native<br>
+                            <input type="checkbox" name="race" value="Asian" class="raceCheckbox"> Asian<br>
+                            <input type="checkbox" name="race" value="Hawaiian Native/Pacific Islander" class="raceCheckbox"> Hawaiian Native/Pacific Islander<br>
+                            <input type="checkbox" name="race" value="Hispanic/Latino" class="raceCheckbox"> Hispanic/Latino
+                        </td>
+                        <td style="width: 33%; vertical-align: top;">
+                            Gender<br><br>
+                            <input type="radio" name="gender" value="Male"> Male<br>
+                            <input type="radio" name="gender" value="Female"> Female<br>
+                            <input type="radio" name="gender" value="Other"> Other
+                            <br><br><br>
+                            Employment desired<br><br>
+                            <input type="radio" name="employment" value="Full-Time"> Full-Time<br>
+                            <input type="radio" name="employment" value="Part-Time"> Part-Time
+                        </td>
+                        <td style="width: 33%; vertical-align: top;">
+                            Days available to work<br><br>
+                            <input type="checkbox" name="daysAvailable" value="All" id="allDaysCheckbox"> All<br>
+                            <input type="checkbox" name="daysAvailable" value="Mon" class="dayCheckbox"> Mon<br>
+                            <input type="checkbox" name="daysAvailable" value="Tues" class="dayCheckbox"> Tues<br>
+                            <input type="checkbox" name="daysAvailable" value="Wed" class="dayCheckbox"> Wed<br>
+                            <input type="checkbox" name="daysAvailable" value="Thu" class="dayCheckbox"> Thu<br>
+                            <input type="checkbox" name="daysAvailable" value="Fri" class="dayCheckbox"> Fri<br>
+                            <input type="checkbox" name="daysAvailable" value="Sat" class="dayCheckbox"> Sat<br>
+                            <input type="checkbox" name="daysAvailable" value="Sun" class="dayCheckbox"> Sun
+                        </td>
+                    </tr>
+                </table>
+                <br><br><br>
+                How many hours weekly can you work?
+                <button type="button" onclick="decreaseHours()">-</button>
+                <input type="number" name="weeklyHours" id="weeklyHours" min="0" value="0" readonly style="width: 60px;">
+                <button type="button" onclick="increaseHours()">+</button>
+                <br><br><br>
+                Can you work nights?
+                <input type="radio" name="workNights" value="yes"> Yes
+                <input type="radio" name="workNights" value="no"> No
+                <br><br><br>
+                Have you ever been fired from a job?
+                <input type="radio" name="firedFromJob" value="yes"> Yes
+                <input type="radio" name="firedFromJob" value="no"> No
+                <br><br><br>
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="button" onclick="goBackToPage3()" style="padding: 10px 30px;">Back to Page 3</button>
+                    <button type="submit" style="padding: 10px 30px;">Next Page</button>
+                </div>
+            </form>
+        </div>
+        
+        <div id="page5" style="display: none;">
+            <h2>MISCELLANEOUS</h2>
+            <form id="miscellaneous2Form">
+                Have you ever served in the military?
+                <input type="radio" name="servedMilitary" value="yes" id="militaryYes"> Yes
+                <input type="radio" name="servedMilitary" value="no" id="militaryNo"> No
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                How many years? <input type="number" name="militaryYears" id="militaryYears" min="0" size="5" disabled>
+                <br><br><br>
+                Was it an honorable discharge?
+                <input type="radio" name="honorableDischarge" value="yes" id="honorableYes" disabled> Yes
+                <input type="radio" name="honorableDischarge" value="no" id="honorableNo" disabled> No
+                <br><br><br>
+                Which branch did you most recently serve?
+                <select name="militaryBranch" id="militaryBranch" disabled>
+                    <option value="">Select a branch</option>
+                    <option value="Air Force">Air Force</option>
+                    <option value="Coast Guard">Coast Guard</option>
+                    <option value="National Guard">National Guard</option>
+                    <option value="Army">Army</option>
+                    <option value="Marines">Marines</option>
+                    <option value="Navy">Navy</option>
+                </select>
+                <br><br><br>
+                Do you have a driver's license?
+                <input type="radio" name="hasLicense" value="yes" id="licenseYes"> Yes
+                <input type="radio" name="hasLicense" value="no" id="licenseNo"> No
+                <br><br><br>
+                Driver's License #: <input type="text" name="licenseNumber" id="licenseNumber" size="20" disabled>
+                State: <select name="licenseState" id="licenseState" disabled>
+                    <option value="">Select a state</option>
+                    <option value="AL">AL</option>
+                    <option value="AK">AK</option>
+                    <option value="AZ">AZ</option>
+                    <option value="AR">AR</option>
+                    <option value="CA">CA</option>
+                    <option value="CO">CO</option>
+                    <option value="CT">CT</option>
+                    <option value="DE">DE</option>
+                    <option value="FL">FL</option>
+                    <option value="GA">GA</option>
+                    <option value="HI">HI</option>
+                    <option value="ID">ID</option>
+                    <option value="IL">IL</option>
+                    <option value="IN">IN</option>
+                    <option value="IA">IA</option>
+                    <option value="KS">KS</option>
+                    <option value="KY">KY</option>
+                    <option value="LA">LA</option>
+                    <option value="ME">ME</option>
+                    <option value="MD">MD</option>
+                    <option value="MA">MA</option>
+                    <option value="MI">MI</option>
+                    <option value="MN">MN</option>
+                    <option value="MS">MS</option>
+                    <option value="MO">MO</option>
+                    <option value="MT">MT</option>
+                    <option value="NE">NE</option>
+                    <option value="NV">NV</option>
+                    <option value="NH">NH</option>
+                    <option value="NJ">NJ</option>
+                    <option value="NM">NM</option>
+                    <option value="NY">NY</option>
+                    <option value="NC">NC</option>
+                    <option value="ND">ND</option>
+                    <option value="OH">OH</option>
+                    <option value="OK">OK</option>
+                    <option value="OR">OR</option>
+                    <option value="PA">PA</option>
+                    <option value="RI">RI</option>
+                    <option value="SC">SC</option>
+                    <option value="SD">SD</option>
+                    <option value="TN">TN</option>
+                    <option value="TX">TX</option>
+                    <option value="UT">UT</option>
+                    <option value="VT">VT</option>
+                    <option value="VA">VA</option>
+                    <option value="WA">WA</option>
+                    <option value="WV">WV</option>
+                    <option value="WI">WI</option>
+                    <option value="WY">WY</option>
+                </select>
+                Expires On: <input type="date" name="licenseExpiry" id="licenseExpiry" disabled>
+                <br><br><br>
+                How many traffic accidents have you had in the past three years? <input type="text" name="trafficAccidents" id="trafficAccidents" size="15" disabled>
+                <br><br><br>
+                How many traffic violations have you had in the past three years? <input type="text" name="trafficViolations" id="trafficViolations" size="15" disabled>
+                <br><br><br>
+                Have you ever been stopped for suspension of drinking and driving? <input type="text" name="drinkingDriving" id="drinkingDriving" size="15" disabled>
+                <br><br><br>
+                Have you ever been stopped for suspension of distracted driving? <input type="text" name="distractedDriving" id="distractedDriving" size="15" disabled>
+                <br><br><br>
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="button" onclick="goBackToPage4()" style="padding: 10px 30px;">Back to Page 4</button>
+                    <button type="submit" style="padding: 10px 30px;">Submit Application</button>
+                </div>
+            </form>
         </div>
     </center>
     
@@ -196,7 +424,7 @@
             e.target.value = e.target.value.replace(/\D/g, '');
         });
         
-        // Auto-format SSN with dashes
+        // Auto-format SSN with dashes (improved)
         document.getElementById('ssn').addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, ''); // Remove all non-digits
             let formatted = '';
@@ -214,7 +442,7 @@
             e.target.value = formatted;
         });
         
-        // Auto-format phone numbers with (###)###-####
+        // Auto-format phone numbers with (###)###-#### (improved)
         function formatPhone(input) {
             let value = input.value.replace(/\D/g, ''); // Remove all non-digits
             
@@ -278,6 +506,19 @@
             }
         }
         
+        // Increase/decrease weekly hours counter
+        window.increaseHours = function() {
+            const input = document.getElementById('weeklyHours');
+            input.value = parseInt(input.value) + 1;
+        }
+        
+        window.decreaseHours = function() {
+            const input = document.getElementById('weeklyHours');
+            if (parseInt(input.value) > 0) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+        
         // Store application data
         let applicationData = {};
         
@@ -310,7 +551,219 @@
         function goBackToPage1() {
             document.getElementById('applicationForm').style.display = 'block';
             document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'none';
         }
+        
+        // Go back to Page 2
+        function goBackToPage2() {
+            document.getElementById('applicationForm').style.display = 'none';
+            document.getElementById('page2').style.display = 'block';
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'none';
+        }
+        
+        // Go back to Page 3
+        function goBackToPage3() {
+            document.getElementById('applicationForm').style.display = 'none';
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'block';
+            document.getElementById('page4').style.display = 'none';
+            document.getElementById('page5').style.display = 'none';
+        }
+        
+        // Go back to Page 4
+        function goBackToPage4() {
+            document.getElementById('applicationForm').style.display = 'none';
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'block';
+            document.getElementById('page5').style.display = 'none';
+        }
+        
+        // Handle emergency form submission
+        document.getElementById('emergencyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Save emergency form data
+            const formData = new FormData(this);
+            formData.forEach((value, key) => {
+                applicationData[key] = value;
+            });
+            
+            console.log('Page 2 Data Saved:', applicationData);
+            
+            // Hide page 2, show page 3
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'block';
+        });
+        
+        // Handle medical form submission
+        document.getElementById('medicalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Save medical form data
+            const formData = new FormData(this);
+            const medicalConditions = [];
+            formData.forEach((value, key) => {
+                if (key === 'medicalCondition') {
+                    medicalConditions.push(value);
+                }
+            });
+            applicationData['medicalConditions'] = medicalConditions;
+            
+            console.log('Page 3 Data Saved:', applicationData);
+            
+            // Hide page 3, show page 4
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'block';
+        });
+        
+        // Handle miscellaneous form submission
+        document.getElementById('miscellaneousForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Save miscellaneous form data
+            const formData = new FormData(this);
+            
+            // Save race selections
+            const raceSelections = [];
+            formData.getAll('race').forEach(value => raceSelections.push(value));
+            if (raceSelections.length > 0) applicationData['race'] = raceSelections;
+            
+            // Save days available
+            const daysSelections = [];
+            formData.getAll('daysAvailable').forEach(value => daysSelections.push(value));
+            if (daysSelections.length > 0) applicationData['daysAvailable'] = daysSelections;
+            
+            // Save other single-value fields
+            if (formData.get('gender')) applicationData['gender'] = formData.get('gender');
+            if (formData.get('employment')) applicationData['employment'] = formData.get('employment');
+            if (formData.get('weeklyHours')) applicationData['weeklyHours'] = formData.get('weeklyHours');
+            if (formData.get('workNights')) applicationData['workNights'] = formData.get('workNights');
+            if (formData.get('firedFromJob')) applicationData['firedFromJob'] = formData.get('firedFromJob');
+            
+            console.log('Page 4 Data Saved:', applicationData);
+            
+            // Hide page 4, show page 5
+            document.getElementById('page4').style.display = 'none';
+            document.getElementById('page5').style.display = 'block';
+        });
+        
+        // Handle medical condition checkboxes
+        const noneCheckbox = document.getElementById('noneCheckbox');
+        const medicalCheckboxes = document.querySelectorAll('.medicalCheckbox');
+        
+        // When "None" is checked, uncheck all other checkboxes
+        noneCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                medicalCheckboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+            }
+        });
+        
+        // When any medical condition is checked, uncheck "None"
+        medicalCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    noneCheckbox.checked = false;
+                }
+            });
+        });
+        
+        // Handle "All" days checkbox
+        const allDaysCheckbox = document.getElementById('allDaysCheckbox');
+        const dayCheckboxes = document.querySelectorAll('.dayCheckbox');
+        
+        // When "All" is checked, uncheck all other day checkboxes
+        allDaysCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                dayCheckboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+            }
+        });
+        
+        // When any specific day is checked, uncheck "All"
+        dayCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    allDaysCheckbox.checked = false;
+                }
+            });
+        });
+        
+        // Handle military service conditional fields
+        const militaryYes = document.getElementById('militaryYes');
+        const militaryNo = document.getElementById('militaryNo');
+        const militaryYears = document.getElementById('militaryYears');
+        const honorableYes = document.getElementById('honorableYes');
+        const honorableNo = document.getElementById('honorableNo');
+        const militaryBranch = document.getElementById('militaryBranch');
+        
+        militaryYes.addEventListener('change', function() {
+            if (this.checked) {
+                militaryYears.disabled = false;
+                honorableYes.disabled = false;
+                honorableNo.disabled = false;
+                militaryBranch.disabled = false;
+            }
+        });
+        
+        militaryNo.addEventListener('change', function() {
+            if (this.checked) {
+                militaryYears.disabled = true;
+                militaryYears.value = '';
+                honorableYes.disabled = true;
+                honorableNo.disabled = true;
+                honorableYes.checked = false;
+                honorableNo.checked = false;
+                militaryBranch.disabled = true;
+                militaryBranch.value = '';
+            }
+        });
+        
+        // Handle driver's license conditional fields
+        const licenseYes = document.getElementById('licenseYes');
+        const licenseNo = document.getElementById('licenseNo');
+        const licenseNumber = document.getElementById('licenseNumber');
+        const licenseState = document.getElementById('licenseState');
+        const licenseExpiry = document.getElementById('licenseExpiry');
+        const trafficAccidents = document.getElementById('trafficAccidents');
+        const trafficViolations = document.getElementById('trafficViolations');
+        const drinkingDriving = document.getElementById('drinkingDriving');
+        const distractedDriving = document.getElementById('distractedDriving');
+        
+        licenseYes.addEventListener('change', function() {
+            if (this.checked) {
+                licenseNumber.disabled = false;
+                licenseState.disabled = false;
+                licenseExpiry.disabled = false;
+                trafficAccidents.disabled = false;
+                trafficViolations.disabled = false;
+                drinkingDriving.disabled = false;
+                distractedDriving.disabled = false;
+            }
+        });
+        
+        licenseNo.addEventListener('change', function() {
+            if (this.checked) {
+                licenseNumber.disabled = true;
+                licenseNumber.value = '';
+                licenseState.disabled = true;
+                licenseState.value = '';
+                licenseExpiry.disabled = true;
+                licenseExpiry.value = '';
+                trafficAccidents.disabled = true;
+                trafficAccidents.value = '';
+                trafficViolations.disabled = true;
+                trafficViolations.value = '';
+                drinkingDriving.disabled = true;
+                drinkingDriving.value = '';
+                distractedDriving.disabled = true;
+                distractedDriving.value = '';
+            }
+        });
     </script>
 </body>
 </html>
