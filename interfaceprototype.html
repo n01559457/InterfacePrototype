@@ -11,6 +11,9 @@
         <p>Application For Employment (All Applicants Are Tested For Illegal Drugs)</p>
         <p>APPLICATION DATE: <span id="currentDate"></span></p>
         
+        <!-- ========================================
+             PAGE 1: PERSONAL INFORMATION
+        ======================================== -->
         <form id="applicationForm" onsubmit="return validateAndSavePage1();">
             First Name: <input type="text" name="firstName" size="20">
             Last Name: <input type="text" name="lastName" size="20">
@@ -102,6 +105,9 @@
             </div>
         </form>
         
+        <!-- ========================================
+             PAGE 2: EMERGENCY CONTACT
+        ======================================== -->
         <div id="page2" style="display: none;">
             <h2>PERSON TO BE NOTIFIED IN CASE OF EMERGENCY</h2>
             <form id="emergencyForm">
@@ -181,6 +187,9 @@
             </form>
         </div>
         
+        <!-- ========================================
+             PAGE 3: MEDICAL HISTORY
+        ======================================== -->
         <div id="page3" style="display: none;">
             <h2>MEDICAL HISTORY</h2>
             <form id="medicalForm">
@@ -247,6 +256,9 @@
             </form>
         </div>
         
+        <!-- ========================================
+             PAGE 4: MISCELLANEOUS
+        ======================================== -->
         <div id="page4" style="display: none;">
             <h2>MISCELLANEOUS</h2>
             <form id="miscellaneousForm">
@@ -305,6 +317,9 @@
             </form>
         </div>
         
+        <!-- ========================================
+             PAGE 5: MISCELLANEOUS (CONTINUED)
+        ======================================== -->
         <div id="page5" style="display: none;">
             <h2>MISCELLANEOUS</h2>
             <form id="miscellaneous2Form">
@@ -399,9 +414,334 @@
                 <br><br><br>
                 <div style="display: flex; justify-content: space-between;">
                     <button type="button" onclick="goBackToPage4()" style="padding: 10px 30px;">Back to Page 4</button>
+                    <button type="submit" style="padding: 10px 30px;">Next Page</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- ========================================
+             PAGE 6: CRIMINAL BACKGROUND
+        ======================================== -->
+        <div id="page6" style="display: none;">
+            <h2>CRIMINAL BACKGROUND</h2>
+            <form id="criminalForm">
+                Have you ever been convicted of a crime? (IF YES, PROVIDE A LIST OF ALL CRIMINAL OFFENSES (NON-TRAFFIC VIOLATIONS) COMMITTED IN THE PAST 10 YEARS)
+                <input type="radio" name="convictedCrime" value="yes" id="crimeYes"> Yes
+                <input type="radio" name="convictedCrime" value="no" id="crimeNo"> No
+                <br><br><br>
+                <div id="criminalRecordsContainer" style="display: none;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left; padding: 5px;">Date</th>
+                                <th style="text-align: left; padding: 5px;">Misdemeanor/Felony</th>
+                                <th style="text-align: left; padding: 5px;">Description</th>
+                                <th style="text-align: left; padding: 5px;">Confinement/Probation/Community Service</th>
+                                <th style="text-align: left; padding: 5px;">Years</th>
+                            </tr>
+                        </thead>
+                        <tbody id="criminalRecordsBody">
+                            <tr class="criminalRecord">
+                                <td style="padding: 5px;"><input type="date" name="crimeDate1" id="crimeDate1" max="" style="width: 100%;"></td>
+                                <td style="padding: 5px;">
+                                    <select name="crimeType1" style="width: 100%;">
+                                        <option value="">Select</option>
+                                        <option value="Misdemeanor">Misdemeanor</option>
+                                        <option value="Felony">Felony</option>
+                                    </select>
+                                </td>
+                                <td style="padding: 5px;"><input type="text" name="crimeDescription1" style="width: 100%;"></td>
+                                <td style="padding: 5px;">
+                                    <select name="crimePunishment1" style="width: 100%;">
+                                        <option value="">Select</option>
+                                        <option value="Confinement">Confinement</option>
+                                        <option value="Probation">Probation</option>
+                                        <option value="Community Service">Community Service</option>
+                                    </select>
+                                </td>
+                                <td style="padding: 5px;">
+                                    <button type="button" onclick="decreaseCrimeYears(1)">-</button>
+                                    <input type="number" name="crimeYears1" id="crimeYears1" min="0" value="0" readonly style="width: 50px;">
+                                    <button type="button" onclick="increaseCrimeYears(1)">+</button>
+                                </td>
+                                <td style="padding: 5px;">
+                                    <button type="button" onclick="deleteCriminalRecord(this)" style="padding: 5px 15px;">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <button type="button" onclick="addCriminalRecord()" style="padding: 10px 30px;">Add Another Record</button>
+                </div>
+                <br><br><br>
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="button" onclick="goBackToPage5()" style="padding: 10px 30px;">Back to Page 5</button>
+                    <button type="submit" style="padding: 10px 30px;">Next Page</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- ========================================
+             PAGE 7: REFERENCES
+        ======================================== -->
+        <div id="page7" style="display: none;">
+            <h2>REFERENCES</h2>
+            <p>(Please provide four references other than relatives or previous employers)</p>
+            <br><br>
+            <form id="referencesForm">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 50%; vertical-align: top; padding-right: 20px;">
+                            <strong>Reference 1</strong><br><br>
+                            Name: <input type="text" name="ref1Name" style="width: 100%;"><br><br>
+                            Title: <input type="text" name="ref1Title" style="width: 100%;"><br><br>
+                            Company: <input type="text" name="ref1Company" style="width: 100%;"><br><br>
+                            Address: <input type="text" name="ref1Address" style="width: 100%;"><br><br>
+                            Telephone: <input type="text" name="ref1Telephone" id="ref1Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;"><br><br>
+                            Email address: <input type="email" name="ref1Email" style="width: 100%;"><br><br><br>
+                            
+                            <strong>Reference 3</strong><br><br>
+                            Name: <input type="text" name="ref3Name" style="width: 100%;"><br><br>
+                            Title: <input type="text" name="ref3Title" style="width: 100%;"><br><br>
+                            Company: <input type="text" name="ref3Company" style="width: 100%;"><br><br>
+                            Address: <input type="text" name="ref3Address" style="width: 100%;"><br><br>
+                            Telephone: <input type="text" name="ref3Telephone" id="ref3Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;"><br><br>
+                            Email address: <input type="email" name="ref3Email" style="width: 100%;"><br><br>
+                        </td>
+                        <td style="width: 50%; vertical-align: top; padding-left: 20px;">
+                            <strong>Reference 2</strong><br><br>
+                            Name: <input type="text" name="ref2Name" style="width: 100%;"><br><br>
+                            Title: <input type="text" name="ref2Title" style="width: 100%;"><br><br>
+                            Company: <input type="text" name="ref2Company" style="width: 100%;"><br><br>
+                            Address: <input type="text" name="ref2Address" style="width: 100%;"><br><br>
+                            Telephone: <input type="text" name="ref2Telephone" id="ref2Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;"><br><br>
+                            Email address: <input type="email" name="ref2Email" style="width: 100%;"><br><br><br>
+                            
+                            <strong>Reference 4</strong><br><br>
+                            Name: <input type="text" name="ref4Name" style="width: 100%;"><br><br>
+                            Title: <input type="text" name="ref4Title" style="width: 100%;"><br><br>
+                            Company: <input type="text" name="ref4Company" style="width: 100%;"><br><br>
+                            Address: <input type="text" name="ref4Address" style="width: 100%;"><br><br>
+                            Telephone: <input type="text" name="ref4Telephone" id="ref4Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;"><br><br>
+                            Email address: <input type="email" name="ref4Email" style="width: 100%;"><br><br>
+                        </td>
+                    </tr>
+                </table>
+                <br><br><br>
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="button" onclick="goBackToPage6()" style="padding: 10px 30px;">Back to Page 6</button>
+                    <button type="submit" style="padding: 10px 30px;">Next Page</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- ========================================
+             PAGE 8: EDUCATION
+        ======================================== -->
+        <div id="page8" style="display: none;">
+            <h2>EDUCATION</h2>
+            <form id="educationForm">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left; padding: 5px;">School type</th>
+                            <th style="text-align: left; padding: 5px;">School name</th>
+                            <th style="text-align: left; padding: 5px;">State</th>
+                            <th style="text-align: left; padding: 5px;">Graduation date</th>
+                            <th style="text-align: left; padding: 5px;">Major/Degree/Certificate</th>
+                            <th style="text-align: left; padding: 5px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="educationRecordsBody">
+                        <tr class="educationRecord">
+                            <td style="padding: 5px;">
+                                <select name="schoolType1" style="width: 100%;">
+                                    <option value="">Select</option>
+                                    <option value="High School">High School</option>
+                                    <option value="Undergraduate">Undergraduate</option>
+                                    <option value="Graduate">Graduate</option>
+                                    <option value="Post-Graduate">Post-Graduate</option>
+                                    <option value="Professional">Professional</option>
+                                </select>
+                            </td>
+                            <td style="padding: 5px;"><input type="text" name="schoolName1" style="width: 100%;"></td>
+                            <td style="padding: 5px;">
+                                <select name="schoolState1" style="width: 100%;">
+                                    <option value="">Select</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AK">AK</option>
+                                    <option value="AZ">AZ</option>
+                                    <option value="AR">AR</option>
+                                    <option value="CA">CA</option>
+                                    <option value="CO">CO</option>
+                                    <option value="CT">CT</option>
+                                    <option value="DE">DE</option>
+                                    <option value="FL">FL</option>
+                                    <option value="GA">GA</option>
+                                    <option value="HI">HI</option>
+                                    <option value="ID">ID</option>
+                                    <option value="IL">IL</option>
+                                    <option value="IN">IN</option>
+                                    <option value="IA">IA</option>
+                                    <option value="KS">KS</option>
+                                    <option value="KY">KY</option>
+                                    <option value="LA">LA</option>
+                                    <option value="ME">ME</option>
+                                    <option value="MD">MD</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MI">MI</option>
+                                    <option value="MN">MN</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MO">MO</option>
+                                    <option value="MT">MT</option>
+                                    <option value="NE">NE</option>
+                                    <option value="NV">NV</option>
+                                    <option value="NH">NH</option>
+                                    <option value="NJ">NJ</option>
+                                    <option value="NM">NM</option>
+                                    <option value="NY">NY</option>
+                                    <option value="NC">NC</option>
+                                    <option value="ND">ND</option>
+                                    <option value="OH">OH</option>
+                                    <option value="OK">OK</option>
+                                    <option value="OR">OR</option>
+                                    <option value="PA">PA</option>
+                                    <option value="RI">RI</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SD">SD</option>
+                                    <option value="TN">TN</option>
+                                    <option value="TX">TX</option>
+                                    <option value="UT">UT</option>
+                                    <option value="VT">VT</option>
+                                    <option value="VA">VA</option>
+                                    <option value="WA">WA</option>
+                                    <option value="WV">WV</option>
+                                    <option value="WI">WI</option>
+                                    <option value="WY">WY</option>
+                                </select>
+                            </td>
+                            <td style="padding: 5px;"><input type="date" name="gradDate1" id="gradDate1" max="" style="width: 100%;"></td>
+                            <td style="padding: 5px;"><input type="text" name="degree1" style="width: 100%;"></td>
+                            <td style="padding: 5px;">
+                                <button type="button" onclick="deleteEducationRecord(this)" style="padding: 5px 15px;">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <button type="button" onclick="addEducationRecord()" style="padding: 10px 30px;">Add Another Record</button>
+                <br><br><br>
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="button" onclick="goBackToPage7()" style="padding: 10px 30px;">Back to Page 7</button>
+                    <button type="submit" style="padding: 10px 30px;">Next Page</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- ========================================
+             PAGE 9: WORK EXPERIENCE
+        ======================================== -->
+        <div id="page9" style="display: none;">
+            <h2>WORK EXPERIENCE</h2>
+            <p>Please list your work experience for the past five years beginning with the most recent job.</p>
+            <br>
+            <form id="workExperienceForm">
+                <div id="workExperienceContainer">
+                    <div class="workExperience" style="border: 1px solid #000; padding: 20px; margin-bottom: 20px;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 50%; vertical-align: top; padding-right: 20px;">
+                                    Employer name: <input type="text" name="employer1Name" style="width: 100%;"><br><br>
+                                    Address: <input type="text" name="employer1Address" style="width: 100%;"><br><br>
+                                    City: <input type="text" name="employer1City" style="width: 100%;"><br><br>
+                                    Telephone: <input type="text" name="employer1Telephone" id="employer1Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;"><br><br>
+                                    Email address: <input type="email" name="employer1Email" style="width: 100%;"><br><br>
+                                    Reason for leaving (be specific) - Optional: <input type="text" name="employer1Reason" style="width: 100%;"><br><br>
+                                </td>
+                                <td style="width: 50%; vertical-align: top; padding-left: 20px;">
+                                    Name of last supervisor: <input type="text" name="employer1Supervisor" style="width: 100%;"><br><br>
+                                    Employment dates<br>
+                                    From: <input type="date" name="employer1DateFrom" id="employer1DateFrom" max="" style="width: 45%;"><br><br>
+                                    To: <input type="date" name="employer1DateTo" id="employer1DateTo" max="" style="width: 45%;"><br><br>
+                                    Your last job title: <input type="text" name="employer1Title" style="width: 100%;"><br><br>
+                                </td>
+                            </tr>
+                        </table>
+                        List duties performed, skills used, and advancements and promotions earned:<br>
+                        <textarea name="employer1Duties" style="width: 100%; height: 100px; margin-top: 10px;"></textarea><br><br>
+                        May we contact this employer? <input type="radio" name="employer1Contact" value="yes"> Yes <input type="radio" name="employer1Contact" value="no"> No
+                        <br><br>
+                        <button type="button" onclick="deleteWorkExperience(this)" style="padding: 10px 30px;">Delete Record</button>
+                    </div>
+                </div>
+                <button type="button" onclick="addWorkExperience()" style="padding: 10px 30px;">Add Another Employer</button>
+                <br><br><br>
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="button" onclick="goBackToPage8()" style="padding: 10px 30px;">Back to Page 8</button>
+                    <button type="submit" style="padding: 10px 30px;">Next Page</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- ========================================
+             PAGE 10: ADDITIONAL SKILLS AND EXPERIENCE
+        ======================================== -->
+        <div id="page10" style="display: none;">
+            <h2>ADDITIONAL SKILLS AND EXPERIENCE</h2>
+            <p>Provide any additional skills, experiences and other important information that supports your application that has not been listed elsewhere in this application.</p>
+            <br>
+            <form id="additionalSkillsForm">
+                <textarea name="additionalSkills" style="width: 100%; height: 300px;"></textarea>
+                <br><br><br>
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="button" onclick="goBackToPage9()" style="padding: 10px 30px;">Back to Page 9</button>
+                    <button type="submit" style="padding: 10px 30px;">Next Page</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- ========================================
+             PAGE 11: APPLICATION ACKNOWLEDGEMENT AND WAIVER
+        ======================================== -->
+        <div id="page11" style="display: none;">
+            <h2>APPLICATION ACKNOWLEDGEMENT AND WAIVER</h2>
+            <br>
+            <form id="acknowledgementForm">
+                <div style="text-align: left; line-height: 1.8;">
+                    BY APPLYING FOR A JOB AT UNFINISHED BUSINESS, I AGREE TO THESE RULES:<br><br>
+                    
+                    <strong>NO PROMISED JOB:</strong> SENDING IN THIS FORM OR BEING HIRED DOES NOT MEAN MY JOB IS PERMANENT. NOTHING IN THE RULES OR HANDBOOK IS A CONTRACT. BOTH UNFINISHED BUSINESS AND I CAN END MY JOB ANYTIME, FOR ANY REASON. ONLY A SIGNED NOTE FROM THE PRESIDENT OR MANAGER CAN CHANGE THIS.<br><br>
+                    
+                    <strong>WORK RULES:</strong> IF I AM HIRED, UNFINISHED BUSINESS CAN CHANGE ITS RULES, PAY, OR BENEFITS ANYTIME. THESE CHANGES MIGHT LOWER OR REMOVE SOME BENEFITS.<br><br>
+                    
+                    <strong>BACKGROUND CHECK:</strong> I LET UNFINISHED BUSINESS CHECK MY SCHOOL, PAST JOBS, AND REFERENCES. I KNOW THAT FALSE OR MISSING DETAILS CAN CAUSE ME TO LOSE MY JOB. I WILL NOT BLAME UNFINISHED BUSINESS FOR CHECKING THESE THINGS.<br><br>
+                    
+                    <strong>DRUG AND ALCOHOL TESTS:</strong> I KNOW THAT UNFINISHED BUSINESS GIVES TESTS FOR DRUGS AND ALCOHOL. I MUST FOLLOW THIS RULE BEFORE AND DURING MY JOB. I MAY ALSO NEED TO PASS A HEALTH TEST TO KEEP WORKING.<br><br>
+                    
+                    <strong>REPORTS:</strong> I KNOW THAT UNFINISHED BUSINESS MAY ASK ANOTHER GROUP FOR A REPORT ABOUT ME. THIS REPORT MAY INCLUDE MY CREDIT, BACKGROUND, OR CHARACTER. IF I ASK IN WRITING, UNFINISHED BUSINESS WILL TELL ME WHAT TYPE OF REPORT IT GOT.<br><br>
+                    
+                    <strong>TRIAL TIME:</strong> I KNOW THAT MY FIRST 60 DAYS OF WORK ARE A TRIAL TIME. DURING OR AFTER THIS TIME, EITHER I OR UNFINISHED BUSINESS CAN END MY JOB ANYTIME, FOR ANY REASON.<br><br>
+                </div>
+                <br><br>
+                Signature of applicant: <input type="text" name="applicantSignature" size="40" style="margin-left: 10px;">
+                <br><br>
+                Date: <span id="signatureDate"></span>
+                <br><br><br>
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="button" onclick="goBackToPage10()" style="padding: 10px 30px;">Back to Page 10</button>
                     <button type="submit" style="padding: 10px 30px;">Submit Application</button>
                 </div>
             </form>
+        </div>
+        
+        <!-- ========================================
+             PAGE 12: THANK YOU
+        ======================================== -->
+        <div id="page12" style="display: none;">
+            <br><br><br><br><br><br>
+            <h2>UNFINISHED BUSINESS IS AN EQUAL EMPLOYMENT OPPORTUNITY EMPLOYER.</h2>
+            <br>
+            <h3>THANK YOU FOR COMPLETING THIS APPLICATION FORM AND FOR YOUR INTEREST IN UNFINISHED BUSINESS</h3>
         </div>
     </center>
     
@@ -414,6 +754,9 @@
         
         // Display date in MM/DD/YYYY format
         document.getElementById('currentDate').textContent = month + '/' + day + '/' + year;
+        
+        // Set signature date
+        document.getElementById('signatureDate').textContent = month + '/' + day + '/' + year;
         
         // Only allow numbers in zip code
         document.getElementById('zip').addEventListener('input', function(e) {
@@ -477,6 +820,26 @@
         });
         
         document.getElementById('emergencyMobile').addEventListener('input', function(e) {
+            formatPhone(e.target);
+        });
+        
+        document.getElementById('ref1Telephone').addEventListener('input', function(e) {
+            formatPhone(e.target);
+        });
+        
+        document.getElementById('ref2Telephone').addEventListener('input', function(e) {
+            formatPhone(e.target);
+        });
+        
+        document.getElementById('ref3Telephone').addEventListener('input', function(e) {
+            formatPhone(e.target);
+        });
+        
+        document.getElementById('ref4Telephone').addEventListener('input', function(e) {
+            formatPhone(e.target);
+        });
+        
+        document.getElementById('employer1Telephone').addEventListener('input', function(e) {
             formatPhone(e.target);
         });
         
@@ -578,6 +941,87 @@
             document.getElementById('page3').style.display = 'none';
             document.getElementById('page4').style.display = 'block';
             document.getElementById('page5').style.display = 'none';
+            document.getElementById('page6').style.display = 'none';
+        }
+        
+        // Go back to Page 5
+        function goBackToPage5() {
+            document.getElementById('applicationForm').style.display = 'none';
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'none';
+            document.getElementById('page5').style.display = 'block';
+            document.getElementById('page6').style.display = 'none';
+            document.getElementById('page7').style.display = 'none';
+        }
+        
+        // Go back to Page 6
+        function goBackToPage6() {
+            document.getElementById('applicationForm').style.display = 'none';
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'none';
+            document.getElementById('page5').style.display = 'none';
+            document.getElementById('page6').style.display = 'block';
+            document.getElementById('page7').style.display = 'none';
+            document.getElementById('page8').style.display = 'none';
+        }
+        
+        // Go back to Page 7
+        function goBackToPage7() {
+            document.getElementById('applicationForm').style.display = 'none';
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'none';
+            document.getElementById('page5').style.display = 'none';
+            document.getElementById('page6').style.display = 'none';
+            document.getElementById('page7').style.display = 'block';
+            document.getElementById('page8').style.display = 'none';
+            document.getElementById('page9').style.display = 'none';
+        }
+        
+        // Go back to Page 8
+        function goBackToPage8() {
+            document.getElementById('applicationForm').style.display = 'none';
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'none';
+            document.getElementById('page5').style.display = 'none';
+            document.getElementById('page6').style.display = 'none';
+            document.getElementById('page7').style.display = 'none';
+            document.getElementById('page8').style.display = 'block';
+            document.getElementById('page9').style.display = 'none';
+            document.getElementById('page10').style.display = 'none';
+        }
+        
+        // Go back to Page 9
+        function goBackToPage9() {
+            document.getElementById('applicationForm').style.display = 'none';
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'none';
+            document.getElementById('page5').style.display = 'none';
+            document.getElementById('page6').style.display = 'none';
+            document.getElementById('page7').style.display = 'none';
+            document.getElementById('page8').style.display = 'none';
+            document.getElementById('page9').style.display = 'block';
+            document.getElementById('page10').style.display = 'none';
+            document.getElementById('page11').style.display = 'none';
+        }
+        
+        // Go back to Page 10
+        function goBackToPage10() {
+            document.getElementById('applicationForm').style.display = 'none';
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'none';
+            document.getElementById('page5').style.display = 'none';
+            document.getElementById('page6').style.display = 'none';
+            document.getElementById('page7').style.display = 'none';
+            document.getElementById('page8').style.display = 'none';
+            document.getElementById('page9').style.display = 'none';
+            document.getElementById('page10').style.display = 'block';
+            document.getElementById('page11').style.display = 'none';
         }
         
         // Handle emergency form submission
@@ -763,6 +1207,373 @@
                 distractedDriving.disabled = true;
                 distractedDriving.value = '';
             }
+        });
+        
+        // Handle miscellaneous2 form submission
+        document.getElementById('miscellaneous2Form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Save miscellaneous2 form data
+            const formData = new FormData(this);
+            formData.forEach((value, key) => {
+                applicationData[key] = value;
+            });
+            
+            console.log('Page 5 Data Saved:', applicationData);
+            
+            // Hide page 5, show page 6
+            document.getElementById('page5').style.display = 'none';
+            document.getElementById('page6').style.display = 'block';
+        });
+        
+        // Handle criminal conviction conditional display
+        const crimeYes = document.getElementById('crimeYes');
+        const crimeNo = document.getElementById('crimeNo');
+        const criminalRecordsContainer = document.getElementById('criminalRecordsContainer');
+        
+        // Set max date for crime date fields (today)
+        const todayDate = new Date().toISOString().split('T')[0];
+        document.getElementById('crimeDate1').max = todayDate;
+        
+        crimeYes.addEventListener('change', function() {
+            if (this.checked) {
+                criminalRecordsContainer.style.display = 'block';
+            }
+        });
+        
+        crimeNo.addEventListener('change', function() {
+            if (this.checked) {
+                criminalRecordsContainer.style.display = 'none';
+            }
+        });
+        
+        // Criminal record counter functions
+        window.increaseCrimeYears = function(recordNum) {
+            const input = document.getElementById('crimeYears' + recordNum);
+            input.value = parseInt(input.value) + 1;
+        }
+        
+        window.decreaseCrimeYears = function(recordNum) {
+            const input = document.getElementById('crimeYears' + recordNum);
+            if (parseInt(input.value) > 0) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+        
+        // Add criminal record functionality
+        let criminalRecordCount = 1;
+        window.addCriminalRecord = function() {
+            criminalRecordCount++;
+            const tbody = document.getElementById('criminalRecordsBody');
+            const newRow = document.createElement('tr');
+            newRow.className = 'criminalRecord';
+            const todayDate = new Date().toISOString().split('T')[0];
+            newRow.innerHTML = `
+                <td style="padding: 5px;"><input type="date" name="crimeDate${criminalRecordCount}" id="crimeDate${criminalRecordCount}" max="${todayDate}" style="width: 100%;"></td>
+                <td style="padding: 5px;">
+                    <select name="crimeType${criminalRecordCount}" style="width: 100%;">
+                        <option value="">Select</option>
+                        <option value="Misdemeanor">Misdemeanor</option>
+                        <option value="Felony">Felony</option>
+                    </select>
+                </td>
+                <td style="padding: 5px;"><input type="text" name="crimeDescription${criminalRecordCount}" style="width: 100%;"></td>
+                <td style="padding: 5px;">
+                    <select name="crimePunishment${criminalRecordCount}" style="width: 100%;">
+                        <option value="">Select</option>
+                        <option value="Confinement">Confinement</option>
+                        <option value="Probation">Probation</option>
+                        <option value="Community Service">Community Service</option>
+                    </select>
+                </td>
+                <td style="padding: 5px;">
+                    <button type="button" onclick="decreaseCrimeYears(${criminalRecordCount})">-</button>
+                    <input type="number" name="crimeYears${criminalRecordCount}" id="crimeYears${criminalRecordCount}" min="0" value="0" readonly style="width: 50px;">
+                    <button type="button" onclick="increaseCrimeYears(${criminalRecordCount})">+</button>
+                </td>
+                <td style="padding: 5px;">
+                    <button type="button" onclick="deleteCriminalRecord(this)" style="padding: 5px 15px;">Delete</button>
+                </td>
+            `;
+            tbody.appendChild(newRow);
+        }
+        
+        // Delete criminal record
+        window.deleteCriminalRecord = function(button) {
+            const row = button.closest('tr');
+            const tbody = document.getElementById('criminalRecordsBody');
+            
+            // Only allow deletion if there's more than one row
+            if (tbody.children.length > 1) {
+                row.remove();
+            } else {
+                alert('At least one record must remain. You can clear the fields instead.');
+            }
+        }
+        
+        // Handle criminal form submission
+        document.getElementById('criminalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Save criminal form data
+            const formData = new FormData(this);
+            formData.forEach((value, key) => {
+                applicationData[key] = value;
+            });
+            
+            console.log('Page 6 Data Saved:', applicationData);
+            
+            // Hide page 6, show page 7
+            document.getElementById('page6').style.display = 'none';
+            document.getElementById('page7').style.display = 'block';
+        });
+        
+        // Set max date for graduation date field (today)
+        document.getElementById('gradDate1').max = todayDate;
+        
+        // Add education record functionality
+        let educationRecordCount = 1;
+        window.addEducationRecord = function() {
+            educationRecordCount++;
+            const tbody = document.getElementById('educationRecordsBody');
+            const newRow = document.createElement('tr');
+            newRow.className = 'educationRecord';
+            const todayDate = new Date().toISOString().split('T')[0];
+            newRow.innerHTML = `
+                <td style="padding: 5px;">
+                    <select name="schoolType${educationRecordCount}" style="width: 100%;">
+                        <option value="">Select</option>
+                        <option value="High School">High School</option>
+                        <option value="Undergraduate">Undergraduate</option>
+                        <option value="Graduate">Graduate</option>
+                        <option value="Post-Graduate">Post-Graduate</option>
+                        <option value="Professional">Professional</option>
+                    </select>
+                </td>
+                <td style="padding: 5px;"><input type="text" name="schoolName${educationRecordCount}" style="width: 100%;"></td>
+                <td style="padding: 5px;">
+                    <select name="schoolState${educationRecordCount}" style="width: 100%;">
+                        <option value="">Select</option>
+                        <option value="AL">AL</option>
+                        <option value="AK">AK</option>
+                        <option value="AZ">AZ</option>
+                        <option value="AR">AR</option>
+                        <option value="CA">CA</option>
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DE">DE</option>
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="IA">IA</option>
+                        <option value="KS">KS</option>
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="ME">ME</option>
+                        <option value="MD">MD</option>
+                        <option value="MA">MA</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MS">MS</option>
+                        <option value="MO">MO</option>
+                        <option value="MT">MT</option>
+                        <option value="NE">NE</option>
+                        <option value="NV">NV</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>
+                        <option value="NY">NY</option>
+                        <option value="NC">NC</option>
+                        <option value="ND">ND</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VA">VA</option>
+                        <option value="WA">WA</option>
+                        <option value="WV">WV</option>
+                        <option value="WI">WI</option>
+                        <option value="WY">WY</option>
+                    </select>
+                </td>
+                <td style="padding: 5px;"><input type="date" name="gradDate${educationRecordCount}" id="gradDate${educationRecordCount}" max="${todayDate}" style="width: 100%;"></td>
+                <td style="padding: 5px;"><input type="text" name="degree${educationRecordCount}" style="width: 100%;"></td>
+                <td style="padding: 5px;">
+                    <button type="button" onclick="deleteEducationRecord(this)" style="padding: 5px 15px;">Delete</button>
+                </td>
+            `;
+            tbody.appendChild(newRow);
+        }
+        
+        // Delete education record
+        window.deleteEducationRecord = function(button) {
+            const row = button.closest('tr');
+            const tbody = document.getElementById('educationRecordsBody');
+            
+            // Only allow deletion if there's more than one row
+            if (tbody.children.length > 1) {
+                row.remove();
+            } else {
+                alert('At least one record must remain. You can clear the fields instead.');
+            }
+        }
+        
+        // Handle references form submission
+        document.getElementById('referencesForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Save references form data
+            const formData = new FormData(this);
+            formData.forEach((value, key) => {
+                applicationData[key] = value;
+            });
+            
+            console.log('Page 7 Data Saved:', applicationData);
+            
+            // Hide page 7, show page 8
+            document.getElementById('page7').style.display = 'none';
+            document.getElementById('page8').style.display = 'block';
+        });
+        
+        // Set max date for employment date fields (today)
+        document.getElementById('employer1DateFrom').max = todayDate;
+        document.getElementById('employer1DateTo').max = todayDate;
+        
+        // Add work experience functionality
+        let workExperienceCount = 1;
+        window.addWorkExperience = function() {
+            workExperienceCount++;
+            const container = document.getElementById('workExperienceContainer');
+            const newExperience = document.createElement('div');
+            newExperience.className = 'workExperience';
+            newExperience.style.border = '1px solid #000';
+            newExperience.style.padding = '20px';
+            newExperience.style.marginBottom = '20px';
+            const todayDate = new Date().toISOString().split('T')[0];
+            newExperience.innerHTML = `
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 50%; vertical-align: top; padding-right: 20px;">
+                            Employer name: <input type="text" name="employer${workExperienceCount}Name" style="width: 100%;"><br><br>
+                            Address: <input type="text" name="employer${workExperienceCount}Address" style="width: 100%;"><br><br>
+                            City: <input type="text" name="employer${workExperienceCount}City" style="width: 100%;"><br><br>
+                            Telephone: <input type="text" name="employer${workExperienceCount}Telephone" id="employer${workExperienceCount}Telephone" size="17" maxlength="14" placeholder="(###)###-####" style="width: 100%;"><br><br>
+                            Email address: <input type="email" name="employer${workExperienceCount}Email" style="width: 100%;"><br><br>
+                            Reason for leaving (be specific) - Optional: <input type="text" name="employer${workExperienceCount}Reason" style="width: 100%;"><br><br>
+                        </td>
+                        <td style="width: 50%; vertical-align: top; padding-left: 20px;">
+                            Name of last supervisor: <input type="text" name="employer${workExperienceCount}Supervisor" style="width: 100%;"><br><br>
+                            Employment dates<br>
+                            From: <input type="date" name="employer${workExperienceCount}DateFrom" id="employer${workExperienceCount}DateFrom" max="${todayDate}" style="width: 45%;"><br><br>
+                            To: <input type="date" name="employer${workExperienceCount}DateTo" id="employer${workExperienceCount}DateTo" max="${todayDate}" style="width: 45%;"><br><br>
+                            Your last job title: <input type="text" name="employer${workExperienceCount}Title" style="width: 100%;"><br><br>
+                        </td>
+                    </tr>
+                </table>
+                List duties performed, skills used, and advancements and promotions earned:<br>
+                <textarea name="employer${workExperienceCount}Duties" style="width: 100%; height: 100px; margin-top: 10px;"></textarea><br><br>
+                May we contact this employer? <input type="radio" name="employer${workExperienceCount}Contact" value="yes"> Yes <input type="radio" name="employer${workExperienceCount}Contact" value="no"> No
+                <br><br>
+                <button type="button" onclick="deleteWorkExperience(this)" style="padding: 10px 30px;">Delete Record</button>
+            `;
+            container.appendChild(newExperience);
+            
+            // Add phone formatting to the new telephone field
+            document.getElementById('employer' + workExperienceCount + 'Telephone').addEventListener('input', function(e) {
+                formatPhone(e.target);
+            });
+        }
+        
+        // Delete work experience
+        window.deleteWorkExperience = function(button) {
+            const experience = button.closest('.workExperience');
+            const container = document.getElementById('workExperienceContainer');
+            
+            // Only allow deletion if there's more than one experience
+            if (container.children.length > 1) {
+                experience.remove();
+            } else {
+                alert('At least one work experience record must remain. You can clear the fields instead.');
+            }
+        }
+        
+        // Handle education form submission
+        document.getElementById('educationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Save education form data
+            const formData = new FormData(this);
+            formData.forEach((value, key) => {
+                applicationData[key] = value;
+            });
+            
+            console.log('Page 8 Data Saved:', applicationData);
+            
+            // Hide page 8, show page 9
+            document.getElementById('page8').style.display = 'none';
+            document.getElementById('page9').style.display = 'block';
+        });
+        
+        // Handle work experience form submission
+        document.getElementById('workExperienceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Save work experience form data
+            const formData = new FormData(this);
+            formData.forEach((value, key) => {
+                applicationData[key] = value;
+            });
+            
+            console.log('Page 9 Data Saved:', applicationData);
+            
+            // Hide page 9, show page 10
+            document.getElementById('page9').style.display = 'none';
+            document.getElementById('page10').style.display = 'block';
+        });
+        
+        // Handle additional skills form submission
+        document.getElementById('additionalSkillsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Save additional skills form data
+            const formData = new FormData(this);
+            formData.forEach((value, key) => {
+                applicationData[key] = value;
+            });
+            
+            console.log('Page 10 Data Saved:', applicationData);
+            
+            // Hide page 10, show page 11
+            document.getElementById('page10').style.display = 'none';
+            document.getElementById('page11').style.display = 'block';
+        });
+        
+        // Handle acknowledgement form submission (final submission)
+        document.getElementById('acknowledgementForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Save acknowledgement form data
+            const formData = new FormData(this);
+            formData.forEach((value, key) => {
+                applicationData[key] = value;
+            });
+            
+            console.log('Page 11 Data Saved:', applicationData);
+            console.log('FINAL APPLICATION DATA:', applicationData);
+            
+            // Hide page 11, show thank you page
+            document.getElementById('page11').style.display = 'none';
+            document.getElementById('page12').style.display = 'block';
         });
     </script>
 </body>
